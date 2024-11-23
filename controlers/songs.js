@@ -9,10 +9,22 @@ const getSongs = (req,res)=>{
 
 const addLike= (req,res)=>{
    let {id} = req.params
-   let updatedSong =  SONG_INFO[id]
-   updatedSong={...updatedSong,like:true}
-   res.json(updatedSong)
-   SONG_INFO[id]=updatedSong
+   
+    try {
+      let updatedSong =  SONG_INFO[id-1]
+
+      updatedSong={...updatedSong,like:(!updatedSong.like)}
+      SONG_INFO[id]=updatedSong
+      res.json({
+         message:'song like succesfully',
+         result:true
+      })
+    } catch (error) {
+      res.json({
+         message:'someting went wrong ,try later',
+         result:false
+      })
+    }
 }
 
 export {getSongs,addLike}
