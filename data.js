@@ -5,7 +5,7 @@ let SONG_INFO = [
         song_url: 'https://p.scdn.co/mp3-preview/86d2915d71eee7a34a8b41825ccd9f123b323e47?cid=414df719f85e45c9bd0ee5e83d08b501',
         poster: 'https://i.scdn.co/image/ab67616d0000b2731c1d299d19bb5533d4daae07',
         like:false,
-        comment:[{name:"sarthak",content:"hello frinends"}]
+        comment:[]
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ let SONG_INFO = [
         song_url: 'https://p.scdn.co/mp3-preview/f9fb00b9346573a4c5c56e5be8f1dc0a92bb1421?cid=414df719f85e45c9bd0ee5e83d08b501',
         poster: 'https://i.scdn.co/image/ab67616d0000b2732cf70b52b595cec4f4cf617d',
         like:false,
-        comment:[{name:"sarthak",content:"hello frinends"}]
+        comment:[{name:"sarthak",content:"hello frinends how are you i m fi"},{name:'hello',content:'heyy how are you i m fine say abut out were are you from'}]
     },
     {
         id: 3,

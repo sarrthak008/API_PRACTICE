@@ -27,4 +27,42 @@ const addLike= (req,res)=>{
     }
 }
 
-export {getSongs,addLike}
+const postComment= (req, res) => {
+   let { songid } = req.params
+   let { name, content } = req.body
+   try {
+        let addCommnetedSong = SONG_INFO[songid - 1];
+        addCommnetedSong.comment.push({ name, content })
+        SONG_INFO[songid] = addCommnetedSong
+        res.json({
+             message:'comment added successfully',
+             data:{name,content}
+        }).status(200)
+   } catch (error) {
+        res.json({
+             message: 'someting went wrong ,try later',
+             result: false
+        })
+   }
+}
+
+
+const getComments = (req,res)=>{
+       let {id} =req.params
+       try {
+          let foundedSong = SONG_INFO[id - 1];
+          res.json({
+               message:"successfully fetch commnets",
+               data:foundedSong.comment
+          })
+     } catch (error) {
+          res.json({
+               message: 'someting went wrong ,try later',
+               result: false
+          })
+     }
+}
+
+
+
+export {getSongs,addLike,postComment,getComments}
