@@ -7,4 +7,12 @@ const getSongs = (req,res)=>{
      }).status(200)
 }
 
-export {getSongs}
+const addLike= (req,res)=>{
+   let {id} = req.params
+   let updatedSong =  SONG_INFO[id]
+   updatedSong={...updatedSong,like:true}
+   res.json(updatedSong)
+   SONG_INFO[id]=updatedSong
+}
+
+export {getSongs,addLike}
