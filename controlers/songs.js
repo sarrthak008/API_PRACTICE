@@ -1,8 +1,9 @@
 import SONG_INFO from "../data.js";
+import _ from "lodash";
 
 const getSongs = (req,res)=>{
      res.json({
-        data:SONG_INFO,
+        data:_.shuffle(SONG_INFO),
         message:'song loaded successfully'
      }).status(200)
 }
