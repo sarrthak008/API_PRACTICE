@@ -18,6 +18,12 @@ app.post('/comment/:songid',postComment)
 app.get('/comment/:id',getComments)
 app.delete('/comment/:songid/:commentid',deleteComments)
 
+app.get("*",(req,res)=>{
+     res.json({
+          message:`${req.url} not found...`
+     }).status(404)
+})
+
 app.listen(PORT, () => {
      console.log(`app listen on ${PORT}`);
 })
