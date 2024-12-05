@@ -19,12 +19,12 @@ const addLike= (req,res)=>{
       res.json({
          message:'song like succesfully',
          result:true
-      })
+      }).status(200)
     } catch (error) {
       res.json({
          message:'someting went wrong ,try later',
          result:false
-      })
+      }).status(404)
     }
 }
 
@@ -43,7 +43,7 @@ const postComment= (req, res) => {
         res.json({
              message: 'someting went wrong ,try later',
              result: false
-        })
+        }).status(404)
    }
 }
 
@@ -55,12 +55,12 @@ const getComments = (req,res)=>{
           res.json({
                message:"successfully fetch commnets",
                data:foundedSong.comment
-          })
+          }).status(200)
      } catch (error) {
           res.json({
                message: 'someting went wrong ,try later',
                result: false
-          })
+          }).status(404)
      }
 }
 
@@ -71,7 +71,7 @@ const deleteComments = (req,res)=>{
    SONG_INFO[songid].comment.splice(commentid,1)
    res.json({
      message:"comment delete successfully.."
-   })
+   }).status(200)
 }
 
 
