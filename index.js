@@ -2,7 +2,7 @@ import expres, { json, urlencoded } from "express"
 const app = expres();
 const PORT = process.env.port || 3000
 import { getHealth } from "./controlers/other.js";
-import { getSongs, addLike ,postComment,getComments} from "./controlers/songs.js";
+import { getSongs, addLike ,postComment,getComments,deleteComments} from "./controlers/songs.js";
 import cors from 'cors'
 import SONG_INFO from "./data.js";
 
@@ -16,6 +16,7 @@ app.get('/songs', getSongs);
 app.patch('/like/:id', addLike)
 app.post('/comment/:songid',postComment)
 app.get('/comment/:id',getComments)
+app.delete('/comment/:songid/:commentid',deleteComments)
 
 app.listen(PORT, () => {
      console.log(`app listen on ${PORT}`);

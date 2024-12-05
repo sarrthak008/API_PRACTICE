@@ -65,5 +65,14 @@ const getComments = (req,res)=>{
 }
 
 
+const deleteComments = (req,res)=>{
+  console.log(req.url)
+   let {songid,commentid} = req.params
+   SONG_INFO[songid].comment.splice(commentid,1)
+   res.json({
+     message:"comment delete successfully.."
+   })
+}
 
-export {getSongs,addLike,postComment,getComments}
+
+export {getSongs,addLike,postComment,getComments,deleteComments}
