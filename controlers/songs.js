@@ -75,4 +75,14 @@ const deleteComments = (req,res)=>{
 }
 
 
-export {getSongs,addLike,postComment,getComments,deleteComments}
+const getSongByID = (req,res) =>{
+        let {id} = req.params
+        let song = SONG_INFO.find((song)=>{return(song.id==id)});
+        res.json({
+           message:'song fetched successfully..',
+           data:song,
+        }).status(200)
+}
+
+
+export {getSongs,addLike,postComment,getComments,deleteComments,getSongByID}
